@@ -5,7 +5,7 @@ const cors = require('cors');
 
 
 const app = express();
-const PORT = process.env || 5000;
+const PORT = process.env | 8080;
 
 
 
@@ -19,5 +19,5 @@ mongoose.connect(DB_URI, { useNewUrlParser: true, useUnifiedTopology: true }, (e
     console.log(err)
   }
   app.listen(PORT);
-  console.log(`lesting at port ${PORT}`)
+  console.log(`lesting at port ${PORT}`);
 })
