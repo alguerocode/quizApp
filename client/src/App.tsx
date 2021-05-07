@@ -1,10 +1,14 @@
+import React from 'react';
 import './styles/App.css';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import Nav from './components/Nav';
 
-function App(){
+const App: React.FC = () => {
   return (
-    <div className="App">
-    </div>
-  );
-}
+    <Router >
+      <Nav />
+    </Router>
+  )
+};
 
 export default App;
