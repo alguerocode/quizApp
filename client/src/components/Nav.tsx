@@ -9,19 +9,19 @@ const Nav: React.FC = () => {
     <header>
       <h2>
         <FontAwesomeIcon icon={faBook} />
-        <Link to="" className="home">QUIZ APP</Link>
+        <Link to="/" className="home">QUIZ APP</Link>
       </h2>
       <nav>
-        <Link to="" id="home-link" className="link">
+        <Link to="/" id="home-link" className="link">
           <h3>Home</h3>
         </Link>
-        <Link to="" className="link">
-          <h3>create quiz</h3>
+        <Link to="/create" className="link">
+          <h3>create</h3>
         </Link>
-        <Link to="" className="link">
-          <h3>quiz results</h3>
+        <Link to="/results" className="link">
+          <h3>results</h3>
         </Link>
-        <Link to="" className="link">
+        <Link to="/about" className="link">
           <h3>about</h3>
         </Link>
       </nav>

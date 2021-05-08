@@ -46,6 +46,9 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 To learn React, check out the [React documentation](https://reactjs.org/).
 
 # set and init the router in react app           ;;done;;
-# create nav bar
-# init redux store
-# init async functions and connect to the server
+# create nav bar                                 ;; done;;
+# init redux store                               ;; done ;;
+# init async functions and connect to the server ;;after;;
+# create form 
+# form functionality
+# whole post request from 0

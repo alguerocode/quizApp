@@ -1,4 +1,4 @@
-export interface QuestionTemplateProps {
+export interface QuestionTemplateRule {
   question: string;
   options: [
     option1: string,
@@ -9,7 +9,7 @@ export interface QuestionTemplateProps {
   trueValue:number
 }
 
-const QuestionTemplate: React.FC<QuestionTemplateProps> = (props) => {
+const QuestionTemplate: React.FC<QuestionTemplateRule> = (props) => {
   return (
   <div className="template">
 

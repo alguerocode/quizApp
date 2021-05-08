@@ -5,6 +5,10 @@ body {
   font-family: 'Prompt', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #ff7700;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cpolygon fill='%23d94444' points='957 450 539 900 1396 900'/%3E%3Cpolygon fill='%23a90101' points='957 450 872.9 900 1396 900'/%3E%3Cpolygon fill='%23ba0a2d' points='-60 900 398 662 816 900'/%3E%3Cpolygon fill='%23931830' points='337 900 398 662 816 900'/%3E%3Cpolygon fill='%23b45072' points='1203 546 1552 900 876 900'/%3E%3Cpolygon fill='%23b71e55' points='1203 546 1552 900 1162 900'/%3E%3Cpolygon fill='%23c5518c' points='641 695 886 900 367 900'/%3E%3Cpolygon fill='%23962261' points='587 900 641 695 886 900'/%3E%3Cpolygon fill='%23b41d89' points='1710 900 1401 632 1096 900'/%3E%3Cpolygon fill='%23941177' points='1710 900 1401 632 1365 900'/%3E%3Cpolygon fill='%23bf50bf' points='1210 900 971 687 725 900'/%3E%3Cpolygon fill='%2381378c' points='943 900 1210 900 971 687'/%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 code {
