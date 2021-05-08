@@ -33,7 +33,7 @@ const QuestionTemplate: React.FC<{
       <p>3.{question.options.option3}</p>
       <p>4.{question.options.option4}</p>
       <p>true value:{question.trueValue}</p>
-      <button onClick={deleteHandler}>delete</button>
+      <button onClick={deleteHandler} className="delete">delete</button>
     </div>
   );
 };
