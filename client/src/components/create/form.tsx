@@ -1,19 +1,64 @@
 import React, {useEffect, useState} from 'react';
-import {QuestionTemplateRule} from './question-template';
+import QuestionTemplate, {QuestionTemplateRule} from './question-template';
 import {faPlus} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import '../../styles/create.css';
 const QuizForm: React.FC = () => {
-  const [questions, setQuestions] = useState<QuestionTemplateRule[] | []>([]);
   useEffect(() => {
     document.title = 'Create | quiz app';
   }, []);
-  const addHandler = (e: Event) => {
+  const [questions, setQuestions] = useState<QuestionTemplateRule[] | []>([]);
+  const [question, setQuestion] = useState<QuestionTemplateRule>({
+    question: '',
+    options: {
+      option1: '',
+      option2: '',
+      option3: '',
+      option4: '',
+    },
+    trueValue: '',
+    id: null,
+  });
+  const addHandler = (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    if (
+      !question.question.trim() ||
+      !question.trueValue.trim() ||
+      !question.options.option1.trim() ||
+      !question.options.option2.trim() ||
+      !question.options.option3.trim() ||
+      !question.options.option4.trim()
+    ) {
+      alert('the form not compeleted correctly');
+      return;
+    }
+    if (
+      question.options.option1.trim() === question.trueValue ||
+      question.options.option2.trim() === question.trueValue ||
+      question.options.option3.trim() === question.trueValue ||
+      question.options.option4.trim() === question.trueValue
+    ) {
+      setQuestions([...questions, {...question, id: Math.random()}]);
+      // clear();
+      return;
+    } else {
+      alert('the answer value not valid must be one of the options');
+      return;
+    }
   };
-  const submitHandler = (e: Event) => {
+  const submitHandler = (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    clear();
   };
+  const clear = () => {
+    setQuestion({
+      question: '',
+      options: {option1: '', option2: '', option3: '', option4: ''},
+      trueValue: '',
+      id: null,
+    });
+  };
+
   return (
     <div className="create">
       <form>
@@ -28,20 +73,86 @@ const QuizForm: React.FC = () => {
           name="question"
           id="question"
           placeholder="question"
+          value={question.question}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setQuestion({...question, question: e.target.value})
+          }
+          required
         />
         <h3>options</h3>
         <label htmlFor="option1">1</label>
-        <input type="text" name="option1" />
+        <input
+          placeholder="option 1"
+          type="text"
+          name="option1"
+          required
+          value={question.options.option1}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setQuestion({
+              ...question,
+              options: {...question.options, option1: e.target.value},
+            })
+          }
+        />
         <label htmlFor="optio2">2</label>
-        <input type="text" name="option2" />
+        <input
+          placeholder="option 2"
+          type="text"
+          name="option2"
+          value={question.options.option2}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setQuestion({
+              ...question,
+              options: {...question.options, option2: e.target.value},
+            })
+          }
+          required
+        />
         <label htmlFor="option3">3</label>
-        <input type="text" name="option3" />
+        <input
+          placeholder="option 3"
+          type="text"
+          name="option3"
+          value={question.options.option3}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setQuestion({
+              ...question,
+              options: {...question.options, option3: e.target.value},
+            })
+          }
+          required
+        />
         <label htmlFor="option4">4</label>
-        <input type="text" name="option4" />
-        <label htmlFor="answer">number of answer</label>
-        <input type="number" name="answer" id="answer" max="4" min="1" />
+        <input
+          placeholder="option 4"
+          type="text"
+          name="option4"
+          value={question.options.option4}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setQuestion({
+              ...question,
+              options: {...question.options, option4: e.target.value},
+            })
+          }
+          required
+        />
+        <label htmlFor="answer">answer</label>
+        <input
+          placeholder="must be one of the option"
+          type="text"
+          name="answer"
+          id="answer"
+          value={question.trueValue}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setQuestion({
+              ...question,
+              trueValue: e.target.value,
+            })
+          }
+          required
+        />
         <div className="buttons">
-          <button>
+          <button onClick={addHandler}>
             add <FontAwesomeIcon icon={faPlus} />
           </button>
           <button type="submit" onClick={submitHandler}>
@@ -49,7 +160,16 @@ const QuizForm: React.FC = () => {
           </button>
         </div>
       </form>
-      <div className="questions">{questions}</div>
+      <div className="questions">
+        {questions &&
+          questions.map((questionTemplate: QuestionTemplateRule) => (
+            <QuestionTemplate key={questionTemplate.id}
+              question={questionTemplate}
+              setQuestions={setQuestions}
+              questions={questions}
+            />
+          ))}
+      </div>
     </div>
   );
 };

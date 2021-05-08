@@ -1,10 +1,11 @@
 * {
   padding: 0;
   margin: 0;
-  position: relative;
+  /* position: relative; */
 }
 
 form {
+  min-width: 300px;
   height: fit-content;
   display: flex;
   flex-direction: column;
@@ -40,7 +41,7 @@ div.create {
   margin: 15px;
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   flex-direction: row;
   width: fit-content;
 }
@@ -70,4 +71,11 @@ textarea {
 button:hover {
   border-radius: 8px;
   color: white;
+}
+div.questions{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: space-evenly;
 }
