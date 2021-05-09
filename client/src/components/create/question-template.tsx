@@ -1,16 +1,8 @@
 import React from 'react';
-import '../../styles/question-template.css'
-export interface QuestionTemplateRule {
-  question: string;
-  options: {
-    option1: string;
-    option2: string;
-    option3: string;
-    option4: string;
-  };
-  trueValue: string;
-  id:number | null;
-}
+import '../../styles/question-template.css';
+import {QuestionTemplateRule} from '../../types/quizzes-interface';
+
+
 
 const QuestionTemplate: React.FC<{
   question: QuestionTemplateRule;

@@ -1,8 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import QuestionTemplate, {QuestionTemplateRule} from './question-template';
+import QuestionTemplate from './question-template';
 import {faPlus} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import '../../styles/create.css';
+import {QuizRule, QuestionTemplateRule} from '../../types/quizzes-interface'; // to do
+
+
 const QuizForm: React.FC = () => {
   useEffect(() => {
     document.title = 'Create | quiz app';
@@ -163,7 +166,8 @@ const QuizForm: React.FC = () => {
       <div className="questions">
         {questions &&
           questions.map((questionTemplate: QuestionTemplateRule) => (
-            <QuestionTemplate key={questionTemplate.id}
+            <QuestionTemplate
+              key={questionTemplate.id}
               question={questionTemplate}
               setQuestions={setQuestions}
               questions={questions}

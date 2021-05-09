@@ -8,12 +8,23 @@ div.template{
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  background-color: white;
+  background-color: rgb(223, 22, 22);
   height:260px;
   margin: 8px;
   width: 200px;
+  border-radius:5px;
+  color: white;
 }
 .delete {
   background-color: rgb(0, 45, 248);
   color: white;
+  border-radius: 3px;
+  padding: 10px 20px;
+  transition: 0.4s;
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+.delete:hover {
+  background-color: red;
 }
