@@ -13,5 +13,15 @@ select{
   border-radius: 5px;
   outline: none;
   border: none;
-
 }
+button{
+  padding: 8px 23px;
+  font-size: large;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: rgb(83, 119, 235);
+  color: white;
+  border-radius: none;
+  transition: .4s;
+};

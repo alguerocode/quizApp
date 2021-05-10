@@ -26,7 +26,7 @@ const Home: React.FC = () => {
       {!allQuizzes && "...loading"}
       {allQuizzes && (
         <>
-          <h3>all quizzes</h3>
+          <h1>all quizzes</h1>
           <div className="quizzes-container">
             {allQuizzes.map((quiz) => (
               <div className="quiz" key={quiz._id}>

@@ -1,7 +1,5 @@
 import React, {useState} from 'react';
 import QuestionTemplate from './question-template';
-import {faPlus} from '@fortawesome/free-solid-svg-icons';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import '../../styles/create.css';
 import {QuestionTemplateRule} from '../../types/quizzes-interface'; // to do
 import {useDispatch} from 'react-redux';
@@ -192,7 +190,7 @@ const QuizForm: React.FC = () => {
         />
         <div className="buttons">
           <button onClick={addHandler}>
-            add <FontAwesomeIcon icon={faPlus} />
+            add
           </button>
           <button type="submit" onClick={submitHandler}>
             submit

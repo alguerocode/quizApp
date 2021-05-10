@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Nav from './components/Nav';
 import QuizForm from './components/create/form';
 import Home from './components/home'
-import Results from './components/quiz-result';
+import Results from './components/results';
 import About from './components/about';
 import Quiz from './components/quiz';
 import NotFound from './notFound'

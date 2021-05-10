@@ -20,10 +20,10 @@ mongoose.connect(DB_URI, { useNewUrlParser: true, useUnifiedTopology: true }, (e
   app.listen(PORT);
   console.log(`lesting at port ${PORT}`);
 })
-app.use('/',quizRouter);
 app.use('/results',resultRouter);
+app.use('/',quizRouter);
 
 // 404
 app.use((req, res) => {
-  res.status(404).render('404', { title: '404' });
+  res.status(404).send('404', { title: '404' });
 });

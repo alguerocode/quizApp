@@ -1,22 +1,23 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
 import {ResultsAPI} from '../../api/results';
-import {addResult, fetchResults, deleteResult} from '../slices/results';
+import {addResult, fetchResults, deleteResult} from '../slices/resultsSlice';
+import {Result} from '../../types/results-interface';
 
-export const fetch_resultzes = createAsyncThunk(
+
+export const fetch_results = createAsyncThunk(
   'result/fetch-results',
-  (arg:void, {dispatch}) => {
+  (arg: void, {dispatch}) => {
     ResultsAPI.fetch_all()
-      .then((data) => {
+      .then(data => {
         dispatch(fetchResults(data));
       })
       .catch((err) => console.log(err));
   }
 );
 
-
 export const add_result = createAsyncThunk(
   'result/add-result',
-  (result: object, {dispatch}) => {
+  (result: Result, {dispatch}) => {
     ResultsAPI.post(result)
       .then((newResult) => {
         dispatch(addResult(newResult));

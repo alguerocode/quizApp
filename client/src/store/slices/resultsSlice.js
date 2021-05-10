@@ -5,14 +5,14 @@ const resultSlice = createSlice({
   initialState: [],
   reducers: {
     fetchResults(state, action) {
-      return state.concat(action.payload);
+      return state = action.payload;
     },
     addResult(state, action) {
       state.push(action.payload);
     },
     deleteResult(state, action) {
       return state.filter(quiz => {
-        return quiz._id !== action.payload._id;
+        return quiz._id !== action.payload;
       })
     }
   },

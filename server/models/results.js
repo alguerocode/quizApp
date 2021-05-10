@@ -1,9 +1,11 @@
 const mongoose = require('mongoose');
 
+
+
 const resultSchema = new mongoose.Schema({
   title: String,
   description: String,
-  degree: Number
+  degree: String
 }, { timestamps: true })
 
 

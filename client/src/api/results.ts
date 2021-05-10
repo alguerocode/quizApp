@@ -1,21 +1,18 @@
 import {API_interface} from '../types/api-interface';
 
 class RESULTS_API implements API_interface {
-  public url:string = 'http://localhost:8080';
+  public url:string = 'http://localhost:8080/results';
 
   public fetch_all() {
-    return fetch(this.url + '/results', {
+    return fetch(this.url, {
       method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
     })
       .then((res) => res.json())
       .then((data) => data)
       .catch((err) => console.log(err));
   }
   public post(quiz: object) {
-    return fetch(this.url + '/results', {
+    return fetch(this.url, {
       body: JSON.stringify(quiz),
       method: 'POST',
       headers: {
@@ -27,7 +24,7 @@ class RESULTS_API implements API_interface {
       .catch((err) => console.log(err));
   }
   public delete(_id: string) {
-    return fetch(this.url + 'results' + _id, {
+    return fetch(this.url + '/' + _id, {
       method: 'DELETE',
       headers: {
         'Content-Types': 'application/json',
