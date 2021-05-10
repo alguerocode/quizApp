@@ -16,3 +16,9 @@ export interface QuizRule {
   description:string,
   questions:QuestionTemplateRule[];
 }
+export interface DB_QuizRule {
+  _id:string,
+  title:string,
+  description:string,
+  questions:QuestionTemplateRule[];
+}

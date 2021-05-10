@@ -2,7 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-
+const quizRouter = require('./routers/quiz.js');
+const resultRouter = require('./routers/results.js');
 
 const app = express();
 const PORT = process.env.PORT | 8080;
@@ -19,6 +20,10 @@ mongoose.connect(DB_URI, { useNewUrlParser: true, useUnifiedTopology: true }, (e
   app.listen(PORT);
   console.log(`lesting at port ${PORT}`);
 })
-app.use('/',(req, res) =>{
-  res.send('welcome there');
-}) 
+app.use('/',quizRouter);
+app.use('/results',resultRouter);
+
+// 404
+app.use((req, res) => {
+  res.status(404).render('404', { title: '404' });
+});

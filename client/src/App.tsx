@@ -7,7 +7,7 @@ import Home from './components/home'
 import Results from './components/quiz-result';
 import About from './components/about';
 import Quiz from './components/quiz';
-
+import NotFound from './notFound'
 const App: React.FC = () => {
   return (
     <Router >
@@ -17,7 +17,8 @@ const App: React.FC = () => {
         <Route path="/create" component={QuizForm} exact/>
         <Route exact path="/results" component={Results}/>
         <Route exact path="/about"component={About}/>
-        <Route exact path="/quiz/:id" component={Quiz} />
+        <Route path="/quiz/:id" component={Quiz}/>
+        <Route path="*" component={NotFound}/>
       </Switch>
     </Router>
   )

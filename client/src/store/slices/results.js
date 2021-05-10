@@ -18,5 +18,5 @@ const resultSlice = createSlice({
   },
 });
 
-export const quizReducer = resultSlice.reducer;
+export const resultsReducer = resultSlice.reducer;
 export const { fetchResults,addResult, deleteResult } = resultSlice.actions;

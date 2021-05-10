@@ -1,15 +1,17 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import QuestionTemplate from './question-template';
 import {faPlus} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import '../../styles/create.css';
-import {QuizRule, QuestionTemplateRule} from '../../types/quizzes-interface'; // to do
-
+import {QuestionTemplateRule} from '../../types/quizzes-interface'; // to do
+import {useDispatch} from 'react-redux';
+import {add_quiz} from '../../store/async-actions/quiz';
 
 const QuizForm: React.FC = () => {
-  useEffect(() => {
-    document.title = 'Create | quiz app';
-  }, []);
+  document.title = 'Create | quiz app';
+  const dispatch = useDispatch();
+  const [title, setTitle] = useState<string>('none');
+  const [description, setdescrip] = useState<string>('none');
   const [questions, setQuestions] = useState<QuestionTemplateRule[] | []>([]);
   const [question, setQuestion] = useState<QuestionTemplateRule>({
     question: '',
@@ -42,7 +44,7 @@ const QuizForm: React.FC = () => {
       question.options.option4.trim() === question.trueValue
     ) {
       setQuestions([...questions, {...question, id: Math.random()}]);
-      // clear();
+      clear();
       return;
     } else {
       alert('the answer value not valid must be one of the options');
@@ -51,6 +53,22 @@ const QuizForm: React.FC = () => {
   };
   const submitHandler = (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    if(questions.length === 0) {
+        alert('there are no question');
+        return;
+    }
+    if(!title.trim() || !description.trim()) {
+      alert('compelete your form corrctly please');
+      return;
+    }
+    dispatch(
+      add_quiz({
+        title: title,
+        description: description,
+        questions: questions,
+      })
+    );
+    window.location.assign('/')
     clear();
   };
   const clear = () => {
@@ -67,9 +85,27 @@ const QuizForm: React.FC = () => {
       <form>
         <h2 className="form">Quiz Form</h2>
         <h3>title</h3>
-        <input type="text" name="title" id="title" placeholder="title" />
+        <input
+          type="text"
+          name="title"
+          id="title"
+          placeholder="title"
+          value={title}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setTitle(e.target.value)
+          }
+        />
         <h3>description</h3>
-        <textarea name="description" id="description" cols="30" rows="10" />
+        <textarea
+          name="description"
+          id="description"
+          cols="30"
+          rows="10"
+          value={description}
+          onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+            setdescrip(e.target.value)
+          }
+        />
         <h3>question</h3>
         <input
           type="text"

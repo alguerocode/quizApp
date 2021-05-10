@@ -1,5 +1,5 @@
 
-export interface Quiz_API_interface {
+export interface API_interface {
   url: string;
   fetch_all: Function;
   post: (result: object) => object;

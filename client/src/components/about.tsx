@@ -1,10 +1,8 @@
-import React, { useEffect } from 'react';
- 
+import React from 'react';
+
 const About: React.FC = () => {
-  useEffect(  ()=>{
-    document.title = "About | quiz app"
-  },[])
-  return ( <div>welcome to the about page</div> );
-}
- 
+  document.title = "about | quizApp";
+  return <div>welcome to the about page</div>;
+};
+
 export default About;

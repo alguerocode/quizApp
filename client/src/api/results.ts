@@ -1,7 +1,7 @@
-import {Quiz_API_interface} from '../types/api-interface';
+import {API_interface} from '../types/api-interface';
 
-class RESULTS_API implements Quiz_API_interface {
-  public url = 'http://localhost:8080';
+class RESULTS_API implements API_interface {
+  public url:string = 'http://localhost:8080';
 
   public fetch_all() {
     return fetch(this.url + '/results', {
@@ -27,9 +27,8 @@ class RESULTS_API implements Quiz_API_interface {
       .catch((err) => console.log(err));
   }
   public delete(_id: string) {
-    return fetch(this.url + 'results', {
+    return fetch(this.url + 'results' + _id, {
       method: 'DELETE',
-      body: JSON.stringify(_id),
       headers: {
         'Content-Types': 'application/json',
       },

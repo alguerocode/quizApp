@@ -1,6 +1,7 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
 import {QuizAPI} from '../../api/quizzes';
-import {addQuizzes, deleteQuizzes, fetchQuizzes} from '../slices/quizSlice';
+import { QuizRule } from '../../types/quizzes-interface';
+import {addQuizzes, deleteQuiz, fetchQuizzes} from '../slices/quizSlice';
 
 export const fetch_quizzes = createAsyncThunk(
   'quiz/fetch-quizzez',
@@ -15,7 +16,7 @@ export const fetch_quizzes = createAsyncThunk(
 
 export const add_quiz = createAsyncThunk(
   'quiz/add-quiz',
-  (quiz: object, {dispatch}) => {
+  (quiz:QuizRule, {dispatch}) => {
     QuizAPI.post(quiz)
       .then((newQuiz) => {
         dispatch(addQuizzes(newQuiz));
@@ -28,7 +29,7 @@ export const delete_quiz = createAsyncThunk(
   (_id: string, {dispatch}) => {
     QuizAPI.delete(_id)
       .then(() => {
-        dispatch(deleteQuizzes(_id));
+        dispatch(deleteQuiz(_id));
       })
       .catch((err) => console.log(err));
   }

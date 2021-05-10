@@ -1,0 +1,17 @@
+h1{
+  color: rgb(83, 119, 235);
+}
+.question{
+  /* border-bottom: 1px solid rgb(243, 203, 94); */
+  font-size: large;
+
+}
+select{
+  padding: 8px 10px;
+  width: 200px;
+  margin: 20px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+
+}
