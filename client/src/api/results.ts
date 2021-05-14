@@ -1,7 +1,7 @@
 import {API_interface} from '../types/api-interface';
 
 class RESULTS_API implements API_interface {
-  public url:string = 'http://localhost:8080/results';
+  public url:string = 'https://quiz-result.herokuapp.com/results/';
 
   public fetch_all() {
     return fetch(this.url, {
@@ -11,9 +11,9 @@ class RESULTS_API implements API_interface {
       .then((data) => data)
       .catch((err) => console.log(err));
   }
-  public post(quiz: object) {
+  public post(result: object) {
     return fetch(this.url, {
-      body: JSON.stringify(quiz),
+      body: JSON.stringify(result),
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -24,10 +24,10 @@ class RESULTS_API implements API_interface {
       .catch((err) => console.log(err));
   }
   public delete(_id: string) {
-    return fetch(this.url + '/' + _id, {
+    return fetch(this.url + _id, {
       method: 'DELETE',
       headers: {
-        'Content-Types': 'application/json',
+        'Content-Type': 'application/json',
       },
     })
       .then((res) => res.json())

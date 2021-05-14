@@ -1,4 +1,4 @@
-:root{
+:root {
   --buttons-color: rgb(83, 119, 235);
 }
 
@@ -32,7 +32,7 @@ nav {
   align-items: center;
   width: 60%;
 }
-#bars{
+#bars {
   display: none;
 }
 .link {
@@ -54,12 +54,11 @@ nav {
   border-radius: 5px;
 }
 
-.visible{
-  transition: .4s;
-  display: none;
-}
-@media only screen and (max-width:550px) {
-  nav{
+@media only screen and (max-width: 550px) {
+  .visible {
+    display: none;
+  }
+  nav {
     position: absolute;
     flex-direction: column;
     top: 60px;
@@ -70,27 +69,25 @@ nav {
     width: fit-content;
     padding: 30px;
     border-radius: 9px;
-    transition: .3s;
-    /* display: none; */
   }
-  .link{
+  .link {
     color: rgb(83, 119, 235);
   }
-  #bars{
+  #bars {
     display: inline;
     position: relative;
     font-size: 30px;
     right: 10px;
     color: rgb(83, 119, 235);
     cursor: pointer;
-    transition: .4s;
+    transition: 0.4s;
   }
-  #bars:hover{
+  #bars:hover {
     color: rgb(37, 85, 241);
   }
 }
-@media only screen and (max-width:400px) {
-  nav{
+@media only screen and (max-width: 400px) {
+  nav {
     left: 48%;
   }
 }

@@ -17,10 +17,11 @@ export const fetch_results = createAsyncThunk(
 
 export const add_result = createAsyncThunk(
   'result/add-result',
-  (result: Result, {dispatch}) => {
-    ResultsAPI.post(result)
-      .then((newResult) => {
-        dispatch(addResult(newResult));
+  (quiz: Result, {dispatch}) => {
+    ResultsAPI.post(quiz)
+      .then((newQuiz) => {
+        dispatch(addResult(newQuiz));
+        window.location.assign('/results');
       })
       .catch((err) => console.log(err));
   }

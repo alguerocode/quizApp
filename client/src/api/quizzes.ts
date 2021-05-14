@@ -1,7 +1,7 @@
 import {API_interface} from '../types/api-interface';
 
 class QUIZ_API implements API_interface {
-  public url: string = 'http://localhost:8080/';
+  public url: string = 'https://quiz-result.herokuapp.com/quizzes/';
 
   public fetch_all() {
     return fetch(this.url, {
@@ -15,12 +15,13 @@ class QUIZ_API implements API_interface {
       .catch((err) => console.log(err));
   }
   public post(quiz: object) {
+    console.log(quiz);
     return fetch(this.url, {
       body: JSON.stringify(quiz),
       method: 'POST',
-      headers: {
+      headers:{
         'Content-Type': 'application/json',
-      },
+      }
     })
       .then((res) => res.json())
       .then((data) => data)
@@ -31,16 +32,16 @@ class QUIZ_API implements API_interface {
       method: 'DELETE',
     }).catch((err) => console.log(err));
   }
-  public get_quiz(_id:string) {
+  public get_quiz(_id: string) {
     return fetch(this.url + _id, {
-      method:"GET",
-      headers:{
-        "Content-Type":"application/json"
-      }
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
     })
-    .then((res) => res.json())
-    .then((data) => data)
-    .catch((err) => console.log(err));
+      .then((res) => res.json())
+      .then((data) => data)
+      .catch((err) => console.log(err));
   }
 }
 

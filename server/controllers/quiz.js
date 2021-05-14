@@ -12,6 +12,8 @@ const get_quizzes = (req, res) => {
     })
 }
 const post_quiz = (req, res) => {
+  console.log('welcome there');
+  console.log(req.body);
   const quiz = new QuizModel(req.body);
   quiz.save()
     .then(data => {

@@ -66,7 +66,6 @@ const QuizForm: React.FC = () => {
         questions: questions,
       })
     );
-    window.location.assign('/')
     clear();
   };
   const clear = () => {

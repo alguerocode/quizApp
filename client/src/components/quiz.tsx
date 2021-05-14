@@ -25,7 +25,7 @@ const Quiz: React.FC = ({match}: any) => {
      description:quiz?.description,
      degree:`${degree} / ${quiz?.questions.length}`
    }))
-    window.location.assign('/results');
+    // window.location.assign('/results');
   };
   useEffect(() => {
     QuizAPI.get_quiz(id)

@@ -20,6 +20,7 @@ export const add_quiz = createAsyncThunk(
     QuizAPI.post(quiz)
       .then((newQuiz) => {
         dispatch(addQuizzes(newQuiz));
+        window.location.assign('/');
       })
       .catch((err) => console.log(err));
   }

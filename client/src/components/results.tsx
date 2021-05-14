@@ -19,7 +19,7 @@ const Results: React.FC = () => {
   }
   return (
     <div>
-      {!results && <h2>there are no results</h2>}
+      {results.length === 0 && <h2>there are no results</h2>}
       {results &&
         results.map((result:any) => (
           <div className="result" key={result.createdAt}>
