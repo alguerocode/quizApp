@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const quizRouter = require('./routers/quiz.js');
 const resultRouter = require('./routers/results.js');
-require("dotenv").config();
+
 
 
 const app = express();
@@ -16,7 +16,7 @@ app.use(cors()); // to do ;
 app.use(bodyParser.json({ strict: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const DB_URI = process.env.URI;
+const DB_URI = "YOUR_DB_URI";
 mongoose.connect(DB_URI, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
   .then(() => app.listen(PORT,()=>{console.log('listen in port ' + PORT)}))
   .catch(err => console.log(err))
