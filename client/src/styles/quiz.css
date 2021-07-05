@@ -1,0 +1,27 @@
+h1{
+  color: rgb(83, 119, 235);
+}
+.question{
+  /* border-bottom: 1px solid rgb(243, 203, 94); */
+  font-size: large;
+
+}
+select{
+  padding: 8px 10px;
+  width: 200px;
+  margin: 20px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+}
+button{
+  padding: 8px 23px;
+  font-size: large;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: rgb(83, 119, 235);
+  color: white;
+  border-radius: none;
+  transition: .4s;
+};

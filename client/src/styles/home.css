@@ -1,0 +1,22 @@
+* {
+  padding:0;
+  margin: 0;
+  box-sizing: content-box;
+}
+
+.quiz{
+  color: black;
+  background-color: rgb(245, 237, 126);
+  margin: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  border-bottom: 6px solid rgb(70, 72, 73);
+  border-right: 4px solid rgb(71, 72, 73);
+}
+.buttons button{
+  transition: 0.2s;
+}
+#delete{
+  background-color: red;
+}
