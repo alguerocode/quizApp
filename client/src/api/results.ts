@@ -1,7 +1,7 @@
 import {API_interface} from '../types/api-interface';
 
 class RESULTS_API implements API_interface {
-  public url:string = 'https://quiz-result.herokuapp.com/results/';
+  public url:string = 'YOUR_SERVER_URL';
 
   public fetch_all() {
     return fetch(this.url, {
