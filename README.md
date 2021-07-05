@@ -16,5 +16,5 @@ quiz app with react js and typescript MERN-stack webapp
 ## contributing
 
 - contribute to this repo by create fork and open new pull request to see it 🎓🥉🥇
-- your project must have only html and css🧑
+- your project must understand reactjs, typescript and nodejs(express)🧑
 - see your project😉
